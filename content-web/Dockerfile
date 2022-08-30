@@ -1,3 +1,4 @@
+# Testing
 # Dockerfile for content-web
 # This is the base image that can be used
 FROM node:dubnium AS build
@@ -16,7 +17,7 @@ COPY package.json /usr/src/app/
 RUN npm install
 # Copy the rest of the sources
 COPY . /usr/src/app
-# Build the Angular Application
+# Build the Angular Application 
 RUN ng build 
 # Start the application
 CMD [ "node", "app.js" ]
