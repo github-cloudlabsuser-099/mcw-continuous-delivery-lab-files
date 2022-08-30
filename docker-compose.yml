@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  api:
+    image: ghcr.io/github-cloudlabsuser-099/fabrikam-api:main
+    ports:
+      - "3001:3001"
+
+  web:
+    image: ghcr.io/github-cloudlabsuser-099/fabrikam-web:main
+    depends_on:
+        - api
+    environment:
+        CONTENT_API_URL: http://api:3001
+    ports:
+        - "3000:80"
+        
